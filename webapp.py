@@ -38,4 +38,4 @@ def renderPage3():
     return render_template('page3.html')
     
 if __name__=="__main__":
-    app.run(debug=False)
+    app.run(debug=True)
