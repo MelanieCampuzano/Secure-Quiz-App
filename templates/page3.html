@@ -1,13 +1,13 @@
 {% extends "layout.html" %}
 
-{% block title %}Page 2: Ask for your favorite color{% endblock %}
+{% block title %}Page 3: Ask for location of trip{% endblock %}
 
 {% block content %}
-  <h1>Page 2: Ask for favorite color</h1>
+  <h1>Page 3: What was the location did the stardust crusaders go on a trip in part 3?</h1>
 
- <form action={{ url_for("renderPage3") }} method="POST">
-  Favorite Color:<br>
-  <input type="text" name="favoriteColor">
+ <form action={{ url_for("renderPage4") }} method="POST">
+  Location:<br>
+  <input type="text" name="Location">
   <input type="submit" value="Submit">
  </form> 
 

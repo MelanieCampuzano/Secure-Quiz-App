@@ -1,16 +1,21 @@
 {% extends "layout.html" %}
 
-{% block title %}Page 3--Now we know everything!{% endblock %}
+{% block title %}Page 6--Now we know everything!{% endblock %}
 
 {% block content %}
   <h1>Now I know:</h1>
 
-<ul>
- <li> Your first name is: {{ session['firstName'] }} </li>
- <li> Your last name is: {{ session['lastName'] }} </li>
- <li> Your favorite color is: {{ session['favoriteColor'] }} </li>
-</ul>
 
+
+<ul>
+ <li> Your answer to the first name of the evil vampire is: {{session['firstName']}} </li>
+ <li> The last name of the evil vampire is: {{session['lastName']}} </li>
+ <li> The god-like entity antagonist was: {{session['God-like-Entity']}}</li>
+ <li> The location the stardust crusaders took a trip to was: {{session['Location']}} </li>
+ <li> The name of Yuya Fungami's stand is: {{session['standName']}} </li>
+ <li> The name of the dance is: {{session['DanceName']}} </li>
+ <li> </li>
+</ul>
 
 
 {% endblock %}

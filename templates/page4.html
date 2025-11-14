@@ -1,13 +1,13 @@
 {% extends "layout.html" %}
 
-{% block title %}Page 2: Ask for your favorite color{% endblock %}
+{% block title %}Page 4: Ask for your favorite color{% endblock %}
 
 {% block content %}
-  <h1>Page 2: Ask for favorite color</h1>
+  <h1>Page 2: What was the name of Yuya Fungami's stand?</h1>
 
- <form action={{ url_for("renderPage3") }} method="POST">
-  Favorite Color:<br>
-  <input type="text" name="favoriteColor">
+ <form action={{ url_for("renderPage5") }} method="POST">
+  Stand name:<br>
+  <input type="text" name="standName">
   <input type="submit" value="Submit">
  </form> 
 

@@ -34,8 +34,29 @@ def renderPage2():
 
 @app.route('/page3',methods=['GET','POST'])
 def renderPage3():
-    session["favoriteColor"]=request.form['favoriteColor']
+    session["God-like-Entity"]=request.form['God-like-Entity']
     return render_template('page3.html')
-    
+
+@app.route('/page4',methods=['GET','POST'])
+def renderPage3():
+    session["Location"]=request.form['Location']
+    return render_template('page4.html')
+
+@app.route('/page5',methods=['GET','POST'])
+def renderPage3():
+    session["standName"]=request.form['standName']
+    return render_template('page5.html')
+
+@app.route('/page6',methods=['GET','POST'])
+def renderPage3():
+    session["DanceName"]=request.form['DanceName']
+    return render_template('page6.html')
+
+
+
+
+
+
+
 if __name__=="__main__":
     app.run(debug=True)

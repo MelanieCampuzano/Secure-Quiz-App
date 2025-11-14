@@ -1,13 +1,13 @@
 c{% extends "layout.html" %}
 
-{% block title %}Page 2: Ask for your favorite color{% endblock %}
+{% block title %}Page 5: Ask for your favorite color{% endblock %}
 
 {% block content %}
-  <h1>Page 2: Ask for favorite color</h1>
+  <h1>Page 2: What was the name of the dance Fugo, Mista, and Narancia preformed?</h1>
 
- <form action={{ url_for("renderPage3") }} method="POST">
-  Favorite Color:<br>
-  <input type="text" name="favoriteColor">
+ <form action={{ url_for("renderPage6") }} method="POST">
+  Dance Name:<br>
+  <input type="text" name="DanceName">
   <input type="submit" value="Submit">
  </form> 
 
