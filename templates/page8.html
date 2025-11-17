@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block title %}Page 8: WoU meaning and stand user{% endblock %}
+
+{% block content %}
+  <h1>Page 8: What does WoU stand for? Who was the stand user?</h1>
+
+ <form action={{ url_for("renderPage9") }} method="POST">
+  WoU meaning:<br>
+  <input type="text" name="WoUstand">
+  <br>
+  Stand user:<br>
+  <input type="text" name="WoUstandUser">
+  <input type="submit" value="Submit">
+ </form>  
+
+
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block title %}Page 9: Blah{% endblock %}
+
+{% block content %}
+  <h1>Page 9: What is part 9 called? </h1>
+
+ <form action={{ url_for("renderPage10") }} method="POST">
+  Title name:<br>
+  <input type="text" name="Title">
+  <input type="submit" value="Submit">
+ </form>
+
+
+{% endblock %}

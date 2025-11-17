@@ -1,21 +1,15 @@
 {% extends "layout.html" %}
 
-{% block title %}Page 6--Now we know everything!{% endblock %}
+{% block title %}Page #: Ask for name who erased pucci's existence {% endblock %}
 
 {% block content %}
-  <h1>Now I know:</h1>
+  <h1>Page 6: Who was the person who erased Pucci's existence? </h1>
 
-
-
-<ul>
- <li> Your answer to the first name of the evil vampire is: {{session['firstName']}} </li>
- <li> The last name of the evil vampire is: {{session['lastName']}} </li>
- <li> The god-like entity antagonist was: {{session['God-like-Entity']}}</li>
- <li> The location the stardust crusaders took a trip to was: {{session['Location']}} </li>
- <li> The name of Yuya Fungami's stand is: {{session['standName']}} </li>
- <li> The name of the dance is: {{session['DanceName']}} </li>
- <li> </li>
-</ul>
+ <form action={{ url_for("renderPage7") }} method="POST">
+  Name of person:<br>
+  <input type="text" name="ChildName">
+  <input type="submit" value="Submit">
+ </form> 
 
 
 {% endblock %}

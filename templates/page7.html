@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block title %}Page 7: Blah{% endblock %}
+
+{% block content %}
+  <h1>Page 7: Who was referred to as the 23rd president?</h1>
+
+ <form action={{ url_for("renderPage8") }} method="POST">
+  Name of President :<br>
+  <input type="text" name="President">
+  <input type="submit" value="Submit">
+ </form> 
+
+
+{% endblock %}
