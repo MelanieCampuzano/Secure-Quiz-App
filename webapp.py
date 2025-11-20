@@ -81,46 +81,61 @@ def renderPage9():
 
 @app.route('/page10',methods=['GET','POST'])
 def renderPage10():
-    if "Title" not in session:
-    	session["Title"]=request.form['Title']
-    
-    correct_answers = {
-    	"Q1": "Dio Brando",
-    	"Q2": "Kars",
-    	"Q3": "Egypt",
-    	"Q4": "Highway Star",
-    	"Q5": "Torture Dance",
-    	"Q6": "Emporio",
-    	"Q7": "Funny Valentine",
-    	"Q8a": "Wonder of U",
-    	"Q8b": "Tooru",
-    	"Q9": "JOJOlands"
+	if request.method == "POST":
+		title_val = request.form.get("Title")
+		if title_val and "Title" not in session:
+			session["Title"] = title_val
+
+	correct_answers = {
+        "Q1": "Dio Brando",
+        "Q2": "Kars",
+        "Q3": "Egypt",
+        "Q4": "Highway Star",
+        "Q5": "Torture Dance",
+        "Q6": "Emporio",
+        "Q7": "Funny Valentine",
+        "Q8a": "Wonder of U",
+        "Q8b": ["Tooru", "Toru"],
+        "Q9": "JOJOlands"
     }
-    
-    user_answers = {
-    	"Q1": f"{session['firstName']} {session['lastName']}",
-    	"Q2": session["Ultimate-Life-Form"],
-    	"Q3": session["Location"],
-    	"Q4": session["standName"],
-    	"Q5": session["DanceName"],
-    	"Q6": session["ChildName"],
-    	"Q7": session["President"],
-    	"Q8a": session["WoUstand"],
-    	"Q8b": session["WoUstandUser"],
-    	"Q9": session["Title"]
+
+	user_answers = {
+        "Q1": f"{session['firstName']} {session['lastName']}",
+        "Q2": session["Ultimate-Life-Form"],
+        "Q3": session["Location"],
+        "Q4": session["standName"],
+        "Q5": session["DanceName"],
+        "Q6": session["ChildName"],
+        "Q7": session["President"],
+        "Q8a": session["WoUstand"],
+        "Q8b": session["WoUstandUser"],
+        "Q9": session["Title"]
     }
-    
-    results = {}
-    for q, user_val in user_answers.items():
-    	correct = correct_answers[q]
-    	
-    	if user_val.strip().lower() == correct.lower():
-    		results[q] = {"correct": True, "user": user_val, "correctAns": correct}
-    	else:
-    		results[q] = {"correct": False, "user": user_val, "correctAns": correct}
-    
-    return render_template('page10.html', results=results)
+
+	results = {}
+
+	for q, user_val in user_answers.items():
+		correct = correct_answers[q]
+
+		if isinstance(correct, list):
+			is_correct = user_val.strip().lower() in [c.lower() for c in correct]
+			correct_display = ", ".join(correct)
+
+		else:
+			is_correct = (user_val.strip().lower() == correct.lower())
+			correct_display = correct
+
+		results[q] = {
+			"correct": is_correct,
+			"user": user_val,
+			"correctAns": correct_display
+        }
+
+	return render_template('page10.html', results=results)
 
 
+	
+	
+	
 if __name__=="__main__":
     app.run(debug=True)
