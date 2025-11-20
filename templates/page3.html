@@ -7,10 +7,13 @@
 
  <form action={{ url_for("renderPage4") }} method="POST">
   Location:<br>
-  <input type="text" name="Location">
+{% if session.get('Location') %}
+  	<input type="text" name="Location" value="{{ session['Location']}}" readonly>
+  {% else %}
+  	<input type="text" name="Location" required>
+  {% endif %}
+  <br><br>
+  
   <input type="submit" value="Submit">
- </form> 
-
-
-
+</form>
 {% endblock %}

@@ -6,16 +6,19 @@
   <h1>Your Responses:</h1>
 
 <ul>
- <li> Q1: {{session['firstName']}} {{session['lastName']}} </li>
- <li> Q2: {{session['Ultimate-Life-Form']}}</li>
- <li> Q3: {{session['Location']}} </li>
- <li> Q4: {{session['standName']}} </li>
- <li> Q5: {{session['DanceName']}} </li>
- <li> Q6: {{session['ChildName']}} </li>
- <li> Q7: {{session['President']}} </li>
- <li> Q8: {{session['WoUstand']}} and {{session['WoUstandUser']}}</li>
- <li> Q9: {{session['Title']}} </li>
+{% for q, info in results.items() %}
+	<li>
+		<strong>{{q}}</strong><br>
+		
+		{% if info.correct %}
+			Correct! You answered: {{info.user}}
+		{% else %}
+			Your answer is incorrect.<br>
+			You answered: {{info.user}}<br>
+			The real answer is: <strong>{{info.correctAns}}</strong>
+		{% endif %}
+	</li>
+{% endfor %}
 </ul>
-
 
 {% endblock %}

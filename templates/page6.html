@@ -7,9 +7,14 @@
 
  <form action={{ url_for("renderPage7") }} method="POST">
   Name of person:<br>
-  <input type="text" name="ChildName">
+
+{% if session.get('ChildName') %}
+  	<input type="text" name="ChildName" value="{{ session['ChildName']}}" readonly>
+  {% else %}
+  	<input type="text" name="ChildName" required>
+  {% endif %}
+  <br><br>
+  
   <input type="submit" value="Submit">
- </form> 
-
-
+</form>
 {% endblock %}

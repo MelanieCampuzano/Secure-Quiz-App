@@ -1,8 +1,11 @@
+body {
+	background-color: #6A89A7;
+}
 h1{
-	color: olive;
+	color: #384959;
 }
 
 p{
-	color: gold;
+	color: #BDDDFC;
 	font-size:20px;
 }

@@ -6,11 +6,15 @@
   <h1>Page 2: Who acheived the ultimate life form?</h1>
 
  <form action={{ url_for("renderPage3") }} method="POST">
-  God-like entity:<br>
-  <input type="text" name="Ultimate-Life-Form">
+Ultimate Life Form: <br>
+{% if session.get('Ultimate-Life-Form') %}
+  	<input type="text" name="Ultimate-Life-Form" value="{{ session['Ultimate-Life-Form']}}" readonly>
+  {% else %}
+  	<input type="text" name="Ultimate-Life-Form" required>
+  {% endif %}
+  <br><br>
+  
   <input type="submit" value="Submit">
- </form> 
-
-
+</form>
 
 {% endblock %}
